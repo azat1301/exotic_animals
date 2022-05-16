@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :bookings
   has_many :animals
+  has_many :bookings_as_owner, through: :animals, source: :bookings
 end
