@@ -35,6 +35,7 @@ gem 'simple_form', github: 'heartcombo/simple_form'
 # Custom added
 gem 'devise'
 gem 'faker'
+gem 'pundit'
 
 group :development, :test do
   gem 'pry-byebug'

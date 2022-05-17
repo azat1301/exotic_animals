@@ -1,5 +1,5 @@
 class Owner::BookingsController < ApplicationController
   def index
-    @bookings = current_user.bookings_as_owner
+    @bookings = policy_scope([:owner, Booking]).order(created_at: :desc) # change to start_date
   end
 end
