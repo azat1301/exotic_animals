@@ -8,6 +8,10 @@ class AnimalPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    true
+  end
+
   def create?
     user_is_owner?
   end
