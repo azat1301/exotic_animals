@@ -10,7 +10,7 @@
   <div class="cards">
     <% @animals.each do |animal| %>
       <div class="card-category mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg)">
-        <%= animal.name %>
+        <%= link_to animal.name, animal_path(animal) %>
         <%= animal.species %>
         <%= animal.rarity_level %>
         <%= animal.price %>

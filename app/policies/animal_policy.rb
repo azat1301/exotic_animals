@@ -12,6 +12,10 @@ class AnimalPolicy < ApplicationPolicy
     user_is_owner?
   end
 
+  def show?
+    true
+  end
+
   private
 
   def user_is_owner?
