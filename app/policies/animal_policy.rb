@@ -9,7 +9,7 @@ class AnimalPolicy < ApplicationPolicy
   end
 
   def create?
-    user.owner?
+    user_is_owner?
   end
 
   private
