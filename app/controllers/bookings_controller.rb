@@ -30,7 +30,8 @@ class BookingsController < ApplicationController
     else
       render :edit
     end
-    
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     authorize @booking
