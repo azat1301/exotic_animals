@@ -15,7 +15,9 @@
   <div class="cards">
     <% @animals.each do |animal| %>
       <div class="card-trip">
-        <img src="https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg" />
+        <%# <%= cl_image_tag animal.photo.key, height: 300, width: 400, crop: :fill %>
+        <img src='<%= animal.photo.attached? ? cl_image_path(animal.photo.key) : "https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg" %>' />
+        <%# <img src="https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg" /> %>
         <div class="card-trip-infos">
           <div>
             <h2><%= link_to animal.name, animal_path(animal), class:"text-decoration-none"%></h2>

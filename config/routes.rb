@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :animals, only: [ :index, :new, :show, :create ] do
     resources :bookings, only: :create
   end
-  resources :bookings, only: [ :index, :update, :edit ]
+  resources :bookings, only: [ :index, :update, :edit, :destroy ]
   namespace :owner do
     resources :bookings, only: :index
   end

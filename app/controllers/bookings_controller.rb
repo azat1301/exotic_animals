@@ -30,6 +30,12 @@ class BookingsController < ApplicationController
     else
       render :edit
     end
+    
+  def destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.destroy
+    redirect_to bookings_url notice: "The booking was successfully deleted."
   end
 
   private
