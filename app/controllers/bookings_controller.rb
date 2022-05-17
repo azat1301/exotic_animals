@@ -16,6 +16,21 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
+
+  def update
+    # raise StandardError, 'NotAuthorized' unless @restaurant.user == current_user
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    if @booking.update(booking_params)
+      redirect_to bookings_path, notice: 'Booking was successfully updated.'
+    else
+      render :edit
+    end
+    
   def destroy
     @booking = Booking.find(params[:id])
     authorize @booking

@@ -14,6 +14,9 @@
         <h2>Status: <%= booking.status.capitalize %></h2>
         <h2>Start date: <%= booking.start_date %></h2>
         <h2>End date: <%= booking.end_date %></h2>
+        <%= link_to edit_booking_path(booking) do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
       </div>
       <%= link_to "🗑", booking_path(booking), class: 'card-remove-link', method: :delete, data: { confirm: "Are you sure you'd like to remove this booking?" } %>
   </div>
