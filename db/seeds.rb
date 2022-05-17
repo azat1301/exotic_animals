@@ -8,12 +8,26 @@
 require 'faker'
 
 Animal.destroy_all
+User.destroy_all
+User.create!(email: "dvnchong@gmail.com", password: '123456', first_name: 'Devin', last_name: 'Chong')
+User.create!(email: "azatallayarow@gmail.com", password: '123456', first_name: 'Azat', last_name: 'Allayarov')
+User.create!(email: "kylejwthomas@gmail.com ", password: '123456', first_name: 'Kyle', last_name: 'Thomas')
+puts "creating users with default password '123456'"
+30.times do
+  User.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: '123456'
+  )
+end
+puts "there are now #{User.count} users (including Azat, Devin, and Kyle) with DEFAULT PASSWORD '123456'"
 
 puts "seeding the animals"
-user = User.create!(email: "yo_mamo@gmail.com", password: 'password')
+user = User.all
 30.times do
   Animal.create!(
-    user: user,
+    user: user.sample,
     species: Faker::Creature::Animal.name,
     name: Faker::Creature::Dog.name,
     age: rand(0..27),
@@ -24,4 +38,4 @@ user = User.create!(email: "yo_mamo@gmail.com", password: 'password')
     diet: Faker::Food.ingredient
   )
 end
-puts "done seeding the #{Animal.count} animals y'all"
+puts "done seeding the #{Animal.count} animals y\'all"
