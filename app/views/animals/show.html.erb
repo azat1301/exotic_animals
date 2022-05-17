@@ -1,0 +1,22 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg)">
+  <div class="container">
+    <h1><strong><%= @animal.name %></strong></h1>
+    <div class="info">
+    <h2><%= @animal.species %></h2>
+    <h3><%= @animal.age %></h3>
+    <h3><%= @animal.sex %></h3>
+    <h3><%= @animal.rarity_level %></h3>
+    <h3><%= @animal.diet %></h3>
+    <h3><%= @animal.location %></h3>
+    <h3><strong><%= @animal.price %></strong></h3>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <%= simple_form_for [@animal, @booking] do |f| %>
+      <%= f.input :start_date, html5: true %>
+      <%= f.input :end_date, html5: true %>
+      <%= f.submit %>
+  <% end %>
+</div>
