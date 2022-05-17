@@ -1,10 +1,10 @@
 <div class="container">
   <% @bookings.each do |booking| %>
-  <div class="card-product">
+  <div class="card-product mt-3">
       <img src="https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg" />
       <div class="card-product-infos">
-        <h2>Animal name: <%= booking.animal.name %></h2>
-        <h2>Booking status: <%= booking.status %></h2>
+        <h2>Name: <%= booking.animal.name %></h2>
+        <h2>Status: <%= booking.status %></h2>
         <h2>Start date: <%= booking.start_date %></h2>
         <h2>End date: <%= booking.end_date %></h2>
       </div>

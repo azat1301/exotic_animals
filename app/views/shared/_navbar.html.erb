@@ -18,13 +18,13 @@
           </li>
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "Roars", "#", class: "nav-link" %>
+            <%= link_to "Roars", "https://gamingsection.net/wp-content/uploads/2022/03/Is-Lions-Roar-good-for-Keqing.jpg", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/dmbf29", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "My bookings", bookings_path, class: "dropdown-item" %>
+              <%= link_to "Profile", "#", class: "dropdown-item" %>
+              <%= link_to "Settings", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
