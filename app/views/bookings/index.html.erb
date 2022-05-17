@@ -1,6 +1,13 @@
+<div class="banner" style="background-image: url(https://www.rspca.org.uk/webContent/staticImages/SectionImages/ExoticPets.jpg);">
+  <div class="container">
+    <h1><strong>Your Bookings</strong></h1>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <% @bookings.each do |booking| %>
-  <div class="card-product mt-3">
+  <div class="card-product mt-3 mb-4">
       <img src="https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg" />
       <div class="card-product-infos">
         <h2>Name: <%= booking.animal.name %></h2>
