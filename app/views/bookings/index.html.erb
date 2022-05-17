@@ -8,6 +8,7 @@
         <h2>Start date: <%= booking.start_date %></h2>
         <h2>End date: <%= booking.end_date %></h2>
       </div>
+      <%= link_to "🗑", booking_path(booking), class: 'card-remove-link', method: :delete, data: { confirm: "Are you sure you'd like to remove this booking?" } %>
   </div>
   <% end %>
 </div>
