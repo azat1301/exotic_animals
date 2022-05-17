@@ -22,7 +22,7 @@ class AnimalsController < ApplicationController
     authorize @animal
 
     if @animal.save
-      redirect_to @animal, notice: 'Animal was successfully created.'
+      redirect_to @animal, notice: 'Listing was successfully created.'
     else
       render :new
     end
