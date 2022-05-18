@@ -1,22 +1,30 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @animal.photo.attached? ? cl_image_path(@animal.photo.key) : "https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg" %>'">
-  <div class="container">
-    <h1><strong><%= @animal.name %></strong></h1>
-    <div class="info">
-    <h2><%= @animal.species %></h2>
-    <h3><%= @animal.age %></h3>
-    <h3><%= @animal.sex %></h3>
-    <h3><%= @animal.rarity_level %></h3>
-    <h3><%= @animal.diet %></h3>
-    <h3><%= @animal.location %></h3>
-    <h3><strong>$<%= @animal.price %></strong></h3>
+<div class="container-md mt-5">
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <div class="card-trip">
+        <img src="https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h1><strong><%= @animal.name %></strong></h1>
+            <h2><%= @animal.species %></h2>
+            <p><%= @animal.sex %></p>
+            <p><%= @animal.age %> years old</p>
+            <p><%= @animal.rarity_level %></p>
+            <p><%= @animal.name %> likes to eat <%= @animal.diet %></p>
+            <p><%= @animal.location %></p>
+          </div>
+          <h2 class="card-trip-pricing">$<%= @animal.price %></h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/yannklein" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 mt-4 mb-4">
+      <h3><strong>When would you like to book <%= @animal.name %> for?</strong></h3>
+      <%= simple_form_for [@animal, @booking] do |f| %>
+          <%= f.input :start_date, html5: true %>
+          <%= f.input :end_date, html5: true %>
+          <%= f.submit %>
+      <% end %>
     </div>
   </div>
-</div>
-
-<div class="container mt-3 mb-4">
-  <%= simple_form_for [@animal, @booking] do |f| %>
-      <%= f.input :start_date, html5: true %>
-      <%= f.input :end_date, html5: true %>
-      <%= f.submit %>
-  <% end %>
 </div>
