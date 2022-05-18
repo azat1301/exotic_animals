@@ -13,7 +13,7 @@ User.create!(email: "dvnchong@gmail.com", password: '123456', first_name: 'Devin
 User.create!(email: "azatallayarow@gmail.com", password: '123456', first_name: 'Azat', last_name: 'Allayarov')
 User.create!(email: "kylejwthomas@gmail.com ", password: '123456', first_name: 'Kyle', last_name: 'Thomas')
 puts "creating users with default password '123456'"
-30.times do
+10.times do
   User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -25,7 +25,7 @@ puts "there are now #{User.count} users (including Azat, Devin, and Kyle) with D
 
 puts "seeding the animals"
 user = User.all
-30.times do
+10.times do
   Animal.create!(
     user: user.sample,
     species: Faker::Creature::Animal.name,

@@ -15,16 +15,18 @@
         <h2>Start date: <%= booking.start_date %></h2>
         <h2>End date: <%= booking.end_date %></h2>
       </div>
-      <%= link_to edit_booking_path(booking) do %>
-        <i class="fas fa-edit"></i>
-      <% end %>
-      <%= simple_form_for booking, url: owner_booking_path(booking) do |f| %>
-        <%= f.input :status, as: :hidden, input_html: { value: 'confirmed'} %>
-        <%= f.submit 'Confirm', class: 'btn btn-primary' %>
-      <% end %>
-      <%= simple_form_for booking, url: owner_booking_path(booking) do |f| %>
-        <%= f.input :status, as: :hidden, input_html: { value: 'denied'} %>
-        <%= f.submit 'Decline', class: 'btn btn-info' %>
+      <div class="booking-buttons">
+        <%= link_to edit_booking_path(booking) do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+        <%= simple_form_for booking, url: owner_booking_path(booking) do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 'confirmed'} %>
+          <%= f.submit 'Confirm', class: 'btn btn-primary' %>
+        <% end %>
+        <%= simple_form_for booking, url: owner_booking_path(booking) do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 'denied'} %>
+          <%= f.submit 'Decline', class: 'btn btn-info' %>
+        </div>
       <% end %>
     </div>
   <% end %>
