@@ -2,7 +2,7 @@ class AnimalsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @animals = policy_scope(Animal).order(created_at: :desc)
+    @animals = policy_scope(Animal.where(user_id: current_user.id))
   end
 
   def show

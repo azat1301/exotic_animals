@@ -3,19 +3,17 @@
     <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag "https://img.freepik.com/free-vector/red-dragon-mascot-logo-dragon-head-silhouette-circle-vector-icon_23758-594.jpg" %>
     <% end %>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-          <li class="nav-item active">
-            <%= link_to "New Listing", new_animal_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Bookings", bookings_path, class: "nav-link" %>
-          </li>
+        <li class="nav-item active">
+          <%= link_to "New Listing", new_animal_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Bookings", bookings_path, class: "nav-link" %>
+        </li>
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "Roars", "https://gamingsection.net/wp-content/uploads/2022/03/Is-Lions-Roar-good-for-Keqing.jpg", class: "nav-link" %>
@@ -24,6 +22,7 @@
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/dmbf29", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "My Listings", animals_path, class: "dropdown-item" %>
               <%= link_to "Client Bookings", owner_bookings_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
