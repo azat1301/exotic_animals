@@ -3,6 +3,13 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = policy_scope(Animal.where(user_id: current_user.id))
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    @markers = @animals.geocoded.map do |animal|
+      {
+        lat: animal.latitude,
+        lng: animal.longitude
+      }
+    end
   end
 
   def show
