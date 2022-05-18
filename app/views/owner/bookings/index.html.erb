@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: url(https://www.rspca.org.uk/webContent/staticImages/SectionImages/ExoticPets.jpg);">
   <div class="container">
-    <h1><strong>Your Bookings</strong></h1>
+    <h1><strong>Client Bookings</strong></h1>
     </div>
   </div>
 </div>
@@ -10,15 +10,18 @@
   <div class="card-product mt-3 mb-4">
       <img src='<%= booking.animal.photo.attached? ? cl_image_path(booking.animal.photo.key) : "https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg" %>' />
       <div class="card-product-infos">
-        <h2>Name: <%= booking.animal.name %></h2>
+        <h2>Client Name: <%= booking.user.first_name.capitalize %></h2>
+        <h2>Animal Name: <%= booking.animal.name %></h2>
         <h2>Status: <%= booking.status.capitalize %></h2>
         <h2>Start date: <%= booking.start_date %></h2>
         <h2>End date: <%= booking.end_date %></h2>
-        <%= link_to edit_booking_path(booking) do %>
-          <i class="fas fa-edit"></i>
-        <% end %>
       </div>
-      <%= link_to "🗑", booking_path(booking), class: 'card-remove-link', method: :delete, data: { confirm: "Are you sure you'd like to remove this booking?" } %>
+      <%= link_to edit_booking_path(booking) do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+      <%= link_to "Confirm", owner_bookings_path, data: { confirm: "Are you sure you'd like to confirm this booking?" } %>
+      <%= link_to "Decline", owner_bookings_path, data: { confirm: "Are you sure you'd like to decline this booking?" } %>
+      <%= link_to "Complete", owner_bookings_path%>
   </div>
   <% end %>
 </div>
