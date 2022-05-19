@@ -14,7 +14,8 @@
             <p>Location: <strong><%= @animal.location %></strong></p>
           </div>
           <h1 class="card-trip-pricing">$<%= @animal.price %></h1>
-          <img src="https://kitt.lewagon.com/placeholder/users/yannklein" class="card-trip-user avatar-bordered" />
+          <%# <img src="https://kitt.lewagon.com/placeholder/users/yannklein" class="card-trip-user avatar-bordered" /> %>
+          <img src='<%= @animal.user.photo.attached? ? cl_image_path(@animal.user.photo.key) : "https://kitt.lewagon.com/placeholder/users/yannklein" %>' class="card-trip-user avatar-bordered" />
         </div>
       </div>
     </div>
