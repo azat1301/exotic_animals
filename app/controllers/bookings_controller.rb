@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     if @booking.save
-      redirect_to bookings_path
+      redirect_to bookings_path, notice: 'Booking was successfully created. Please wait until the owner confirms'
     else
       render "animals/show"
     end
