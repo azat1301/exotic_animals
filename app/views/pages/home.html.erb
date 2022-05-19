@@ -3,43 +3,9 @@
     <h1><strong>Exoticals</strong></h1>
     <p>Find your exotic animal today!</p>
     <div class="row">
-    <div class="col col-sm-6 col-md-4">
-    <%= render "shared/search" %>
-    </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="container">
-  <div class="cards">
-    <% @animals.each do |animal| %>
-      <div class="card-trip">
-        <%# <%= cl_image_tag animal.photo.key, height: 300, width: 400, crop: :fill %>
-        <img src='<%= animal.photo.attached? ? cl_image_path(animal.photo.key) : "https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg" %>' />
-        <%# <img src="https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg" /> %>
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= link_to animal.name, animal_path(animal), class:"text-decoration-none"%></h2>
-            <p><%= animal.species %></p>
-            <p><%= animal.rarity_level %></p>
-          </div>
-          <h2 class="card-trip-pricing">$<%= animal.price %></h2>
-        </div>
+      <div class="col col-sm-6 col-md-4">
+        <%= render "shared/search" %>
       </div>
-    <% end %>
-  </div>
-</div>
-
-<div class="footer">
-  <div class="footer-links">
-    <a href="https://worldbirds.com/wp-content/uploads/2020/05/unicorn3.jpg"><i class="fab fa-github"></i></a>
-    <a href="https://animalcorner.org/wp-content/uploads/2015/02/racoon.png"><i class="fab fa-instagram"></i></a>
-    <a href="https://cdn-japantimes.com/wp-content/uploads/2014/10/f-cheetahs-a-20141004.jpg"><i class="fab fa-facebook"></i></a>
-    <a href="https://ichef.bbci.co.uk/news/976/cpsprodpb/793E/production/_117883013_gorilla_dianfosseygorillafund1.jpg"><i class="fab fa-twitter"></i></a>
-    <a href="https://cdn.wallpapersafari.com/11/95/QqDp5C.jpg"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
-    <i class="fas fa-heart"></i> Exoticals
+    </div>
   </div>
 </div>

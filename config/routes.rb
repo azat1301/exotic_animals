@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :bookings, only: [ :index, :update, :edit, :destroy ]
   namespace :owner do
     resources :bookings, only: [ :index, :update ]
+    resources :animals, only: :index
   end
 end
