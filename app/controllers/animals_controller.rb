@@ -5,7 +5,7 @@ class AnimalsController < ApplicationController
     if params[:query].present?
       @animals = policy_scope(Animal).search_by_species_and_rarity_level(params[:query])
     else
-      @animals = policy_scope(Animal.where(user_id: current_user.id))
+      @animals = policy_scope(Animal)
     end
   end
 

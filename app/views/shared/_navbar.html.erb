@@ -22,7 +22,7 @@
             <%= image_tag (current_user.photo.attached? ? cl_image_path(current_user.photo.key) : "https://kitt.lewagon.com/placeholder/users/dmbf29"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "My Listings", animals_path, class: "dropdown-item" %>
+              <%= link_to "My Listings", owner_animals_path, class: "dropdown-item" %>
               <%= link_to "Client Bookings", owner_bookings_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
