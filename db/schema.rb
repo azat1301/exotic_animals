@@ -52,11 +52,11 @@ ActiveRecord::Schema.define(version: 2022_05_19_040015) do
     t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
     t.integer "rarity_level"
     t.integer "sex"
     t.integer "diet"
-    t.float "latitude"
-    t.float "longitude"
     t.index ["user_id"], name: "index_animals_on_user_id"
   end
 

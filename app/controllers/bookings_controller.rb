@@ -1,6 +1,13 @@
 class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking).order(start_date: :desc)
+    @markers = @bookings.map do |booking|
+      {
+        lat: booking.animal.latitude,
+        lng: booking.animal.longitude,
+        info_window: render_to_string(partial: 'animals/info_window', locals: { animal: booking.animal })
+      }
+    end
   end
 
   def create
