@@ -1,24 +1,33 @@
-<div class="banner" style="background-image: url(https://www.rspca.org.uk/webContent/staticImages/SectionImages/ExoticPets.jpg);">
+<div class="banner" style="background-image: url(http://media.giphy.com/media/6xLapD0nWE4ZG/giphy.gif);">
   <div class="container">
     <h1><strong>Your Bookings</strong></h1>
-    </div>
   </div>
 </div>
-
+</div>
 <div class="container">
   <% @bookings.each do |booking| %>
-  <div class="card-product mt-3 mb-4">
-      <img src='<%= booking.animal.photo.attached? ? cl_image_path(booking.animal.photo.key) : "https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg" %>' />
-      <div class="card-product-infos">
-        <h2>Name: <%= booking.animal.name %></h2>
-        <h2>Status: <%= booking.status.capitalize %></h2>
-        <h2>Start date: <%= booking.start_date %></h2>
-        <h2>End date: <%= booking.end_date %></h2>
-        <%= link_to edit_booking_path(booking) do %>
-          <i class="fas fa-edit"></i>
-        <% end %>
+    <div class="card-product mt-3 mb-4">
+      <div class="card-info">
+        <img src='<%= booking.animal.photo.attached? ? cl_image_path(booking.animal.photo.key) : "https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg" %>' />
+        <div class="card-product-infos">
+          <h2>Name: <%= booking.animal.name %></h2>
+          <h2>Status: <%= booking.status.capitalize %></h2>
+          <h2>Start date: <%= booking.start_date %></h2>
+          <h2>End date: <%= booking.end_date %></h2>
+        </div>
       </div>
-      <%= link_to "🗑", booking_path(booking), class: 'card-remove-link', method: :delete, data: { confirm: "Are you sure you'd like to remove this booking?" } %>
-  </div>
+      <div class="flex-column">
+        <div class="my-3 p-3">
+          <%= link_to edit_booking_path(booking) do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+        </div>
+        <div class="my-3 p-3">
+          <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure you'd like to remove this booking?" } do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>
