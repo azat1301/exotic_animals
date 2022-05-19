@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2022_05_19_024217) do
     t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
     t.integer "rarity_level"
     t.integer "sex"
     t.integer "diet"
