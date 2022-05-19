@@ -35,6 +35,7 @@ gem 'simple_form', github: 'heartcombo/simple_form'
 # Custom added
 gem 'devise'
 gem 'faker'
+gem 'pg_search', '~> 2.3.0'
 
 gem 'pundit'
 gem 'dotenv-rails', groups: [:development, :test]
