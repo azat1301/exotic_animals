@@ -4,8 +4,8 @@ class Animal < ApplicationRecord
   has_one_attached :photo
 
   include PgSearch::Model
-  pg_search_scope :search_by_species_and_rarity_level,
-    against: [ :species, :rarity_level ],
+  pg_search_scope :search_by_species_and_location_and_name,
+    against: [ :species, :location, :name ],
     using: {
       tsearch: { prefix: true }
     }

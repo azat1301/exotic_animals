@@ -3,9 +3,9 @@ class AnimalsController < ApplicationController
 
   def index
     if params[:query].present?
-      @animals = policy_scope(Animal).search_by_species_and_rarity_level(params[:query])
+      @animals = policy_scope(Animal).search_by_species_and_location_and_name(params[:query])
     else
-      @animals = policy_scope(Animal)
+      @animals = policy_scope(Animal).order(created_at: :desc)
     end
   end
 
@@ -13,12 +13,13 @@ class AnimalsController < ApplicationController
     @animal = Animal.find(params[:id])
     authorize @animal
     @booking = Booking.new
-    @markers =[
+    @markers = [
       {
         lat: @animal.latitude,
         lng: @animal.longitude,
-        info_window: render_to_string(partial: 'animals/info_window', locals: { animal: @animal }),
-      }]
+        info_window: render_to_string(partial: 'animals/info_window', locals: { animal: @animal })
+      }
+    ]
   end
 
   def new

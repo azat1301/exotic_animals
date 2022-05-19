@@ -1,6 +1,13 @@
 class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking).order(start_date: :desc)
+    @markers = @bookings.map do |booking|
+      {
+        lat: booking.animal.latitude,
+        lng: booking.animal.longitude,
+        info_window: render_to_string(partial: 'animals/info_window', locals: { animal: booking.animal })
+      }
+    end
   end
 
   def create
@@ -10,7 +17,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     if @booking.save
-      redirect_to bookings_path
+      redirect_to bookings_path, notice: 'Booking was successfully created. Please wait until the owner confirms'
     else
       render "animals/show"
     end
