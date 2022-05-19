@@ -5,7 +5,7 @@ class AnimalsController < ApplicationController
     if params[:query].present?
       @animals = policy_scope(Animal).search_by_species_and_location_and_name(params[:query])
     else
-      @animals = policy_scope(Animal)
+      @animals = policy_scope(Animal).order(created_at: :desc)
     end
   end
 
