@@ -1,21 +1,20 @@
 <div class="banner" style="background-image: url(https://qph.cf2.quoracdn.net/main-qimg-8722f7d840f78dab5af2d92152a633a0-lq);">
   <div class="container">
     <h1><strong>Create Listing</strong></h1>
-    </div>
   </div>
 </div>
-
+</div>
 <div class="container mt-3 mb-4">
   <%= simple_form_for [@animal] do |f| %>
-      <%= f.input :name %>
-      <%= f.input :species %>
-      <%= f.input :rarity_level %>
-      <%= f.input :location %>
-      <%= f.input :age %>
-      <%= f.input :sex %>
-      <%= f.input :diet %>
-      <%= f.input :price %>
-      <%= f.input :photo, as: :file %>
-      <%= f.submit %>
+    <%= f.input :name %>
+    <%= f.input :species %>
+    <%= f.input :sex, collection: Animal.sexes.keys %>
+    <%= f.input :rarity_level, collection: Animal.rarity_levels.keys %>
+    <%= f.input :age, collection: (0..100) %>
+    <%= f.input :diet, collection: Animal.diets.keys %>
+    <%= f.input :location %>
+    <%= f.input :price %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit %>
   <% end %>
 </div>

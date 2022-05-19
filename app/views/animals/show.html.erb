@@ -6,12 +6,12 @@
         <div class="card-trip-infos">
           <div>
             <h1><strong><%= @animal.name %></strong></h1>
-            <h2><%= @animal.species %></h2>
-            <p><%= @animal.sex %></p>
-            <p><%= @animal.age %> years old</p>
-            <p><%= @animal.rarity_level %></p>
-            <p><%= @animal.name %> likes to eat <strong><%= @animal.diet %></strong></p>
-            <p><strong><%= @animal.location %></strong></p>
+            <h2>Species: <%= @animal.species %></h2>
+            <p>Sex: <%= @animal.sex %></p>
+            <p>Age: <%= @animal.age %> years</p>
+            <p><%= @animal.rarity_level %> Species</p>
+            <p><%= @animal.species.pluralize %> are <strong><%= @animal.diet %>s</strong></p>
+            <p>Location: <strong><%= @animal.location %></strong></p>
           </div>
           <h2 class="card-trip-pricing">$<%= @animal.price %></h2>
           <img src="https://kitt.lewagon.com/placeholder/users/yannklein" class="card-trip-user avatar-bordered" />
