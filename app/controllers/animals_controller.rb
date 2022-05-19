@@ -3,15 +3,6 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = policy_scope(Animal.where(user_id: current_user.id))
-    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
-    @markers = @animals.geocoded.map do |animal|
-      {
-        lat: animal.latitude,
-        lng: animal.longitude,
-        # info_window: render_to_string(partial: 'flats/info_window', locals: { flat: flat }),
-        # custom_marker: render_to_string(partial: 'flats/marker', locals: { flat: flat }),
-      }
-    end
   end
 
   def show
@@ -22,10 +13,8 @@ class AnimalsController < ApplicationController
       {
         lat: @animal.latitude,
         lng: @animal.longitude,
-        # info_window: render_to_string(partial: 'animals/info_window', locals: { flat: flat }),
-        # custom_marker: render_to_string(partial: 'flats/marker', locals: { flat: flat }),
+        info_window: render_to_string(partial: 'animals/info_window', locals: { animal: @animal }),
       }]
-    end
   end
 
   def new
