@@ -142,3 +142,24 @@
 .footer .fa-heart {
   color: #D23333;
 }
+
+
+.video {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.overlayText {
+  position: absolute;
+  top: 0;
+  bottom: 8px;
+  left: 0;
+  width: 100%;
+  background-color: rgba(100,100,100,0.2);
+  text-align: center;
+  color: white;
+  z-index: 1;
+ }
