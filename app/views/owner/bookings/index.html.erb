@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: url(https://www.rspca.org.uk/webContent/staticImages/SectionImages/ExoticPets.jpg);">
+<div class="banner" style="background-image: url(https://media.baamboozle.com/uploads/images/452366/1629644076_111411_gif-url.gif);">
   <div class="container">
     <h1><strong>Client Bookings</strong></h1>
   </div>
@@ -8,7 +8,7 @@
   <% @bookings.each do |booking| %>
     <div class="card-product mt-3 mb-4">
       <div class="card-info">
-      <img src='<%= booking.animal.photo.attached? ? cl_image_path(booking.animal.photo.key) : "https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg" %>' />
+        <img src='<%= booking.animal.photo.attached? ? cl_image_path(booking.animal.photo.key) : "https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg" %>' />
         <div class="card-product-infos">
           <h2>Client Name: <%= booking.user.first_name.capitalize %></h2>
           <h2>Animal Name: <%= booking.animal.name %></h2>
@@ -17,7 +17,6 @@
           <h2>End date: <%= booking.end_date %></h2>
         </div>
       </div>
-
       <div class="booking-buttons">
         <%= link_to edit_booking_path(booking) do %>
           <i class="fas fa-edit"></i>
