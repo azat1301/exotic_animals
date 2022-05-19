@@ -7,7 +7,9 @@ class AnimalsController < ApplicationController
     @markers = @animals.geocoded.map do |animal|
       {
         lat: animal.latitude,
-        lng: animal.longitude
+        lng: animal.longitude,
+        # info_window: render_to_string(partial: 'flats/info_window', locals: { flat: flat }),
+        # custom_marker: render_to_string(partial: 'flats/marker', locals: { flat: flat }),
       }
     end
   end
@@ -16,6 +18,14 @@ class AnimalsController < ApplicationController
     @animal = Animal.find(params[:id])
     authorize @animal
     @booking = Booking.new
+    @markers =[
+      {
+        lat: @animal.latitude,
+        lng: @animal.longitude,
+        # info_window: render_to_string(partial: 'animals/info_window', locals: { flat: flat }),
+        # custom_marker: render_to_string(partial: 'flats/marker', locals: { flat: flat }),
+      }]
+    end
   end
 
   def new
