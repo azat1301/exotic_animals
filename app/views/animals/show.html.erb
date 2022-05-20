@@ -7,7 +7,11 @@
           <div class="card-trip-infos">
             <div>
               <h1><strong><%= @animal.name %></strong></h1>
-              <div class="d-flex">
+              <h2>Species: <%= @animal.species %></h2>
+              <p>Location: <strong><%= @animal.location %></strong></p>
+            </div>
+            <div class="text-end">
+              <div class="d-flex mb-3">
                 <% @animal.average_rating.times do %>
                   <i class="fas fa-star"></i>
                 <% end %>
@@ -15,10 +19,8 @@
                   <i class="far fa-star"></i>
                 <% end %>
               </div>
-              <h2>Species: <%= @animal.species %></h2>
-              <p>Location: <strong><%= @animal.location %></strong></p>
+              <h2 class="card-trip-pricing">$<%= @animal.price %>/day</h2>
             </div>
-            <h1 class="card-trip-pricing">$<%= @animal.price %></h1>
             <%# <img src="https://kitt.lewagon.com/placeholder/users/yannklein" class="card-trip-user avatar-bordered" /> %>
             <img src='<%= @animal.user.photo.attached? ? cl_image_path(@animal.user.photo.key) : "https://kitt.lewagon.com/placeholder/users/yannklein" %>' class="card-trip-user avatar-bordered" />
           </div>
@@ -60,7 +62,7 @@
       </div>
     <% end %>
   </div>
-  <div>
+  <div class="mt-3">
     <h3>Leave a Review</h3>
     <%= simple_form_for [ @animal, @review ] do |f| %>
       <%= f.input :content, input_html: { minlength: 20 } %>
