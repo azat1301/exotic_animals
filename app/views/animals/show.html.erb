@@ -34,7 +34,6 @@
               <% (5 - @animal.average_rating).times do %>
                 <i class="far fa-star"></i>
               <% end %>
-              <h2 class="card-trip-pricing">$<%= @animal.price %>/day</h2>
             </div>
             <h2 class="card-trip-pricing">$<%= @animal.price %>/day</h2>
           </div>
@@ -67,7 +66,7 @@
   <% @animal.reviews.each do |review| %>
     <div class="card-product mt-3 mb-4">
       <div class="card-info">
-        <img src='<%= review.user.photo.attached? ? cl_image_path(review.user.photo.key) : "https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg" %>' />
+        <img src='<%= review.user.photo.attached? ? cl_image_path(review.user.photo.key) : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" %>' />
         <div class="card-product-infos">
           <div class="d-flex">
             <% review.rating.times do %>
