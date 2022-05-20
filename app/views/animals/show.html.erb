@@ -1,19 +1,19 @@
 <div data-controller="calculation" class="container-md mt-5">
   <div class="row">
     <div class="col-12 col-md-8">
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center mt-4">
         <div class="card-trip" id="card-show">
           <img id="img-show" src='<%= @animal.photo.attached? ? cl_image_path(@animal.photo.key) : "https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg" %>' />
           <div class="card-trip-infos">
             <div>
               <h1><strong><%= @animal.name %></strong></h1>
             </div>
-              <h2><%= @animal.species %></h2>
-              <p>Sex: <%= @animal.sex %></p>
-              <p>Age: <%= @animal.age %> years</p>
-              <p><%= @animal.rarity_level %> Species</p>
-              <p><%= @animal.species.pluralize %> are <strong><%= @animal.diet %>s</strong></p>
-              <div class="text-end">
+            <h2><%= @animal.species %></h2>
+            <p>Sex: <%= @animal.sex %></p>
+            <p>Age: <%= @animal.age %> years</p>
+            <p><%= @animal.rarity_level %> Species</p>
+            <p><%= @animal.species.pluralize %> are <strong><%= @animal.diet %>s</strong></p>
+            <div class="text-end">
               <div class="d-flex mb-3">
                 <% @animal.average_rating.times do %>
                   <i class="fas fa-star"></i>
@@ -22,7 +22,6 @@
                   <i class="far fa-star"></i>
                 <% end %>
               </div>
-
               <h2 class="card-trip-pricing">$<%= @animal.price %>/day</h2>
             </div>
             <%# <img src="https://kitt.lewagon.com/placeholder/users/yannklein" class="card-trip-user avatar-bordered" /> %>
@@ -32,13 +31,13 @@
       </div>
     </div>
     <div class="col-12 col-md-4 mt-4 mb-4">
-    <div style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
-      <h3>Ready to book?</h3>
-      <%= simple_form_for [ @animal, @booking ] do |f| %>
-        <%= f.input :start_date, html5: true, input_html: {data: {calculation_target:"startDay", action: "change->calculation#calculate"} } %>
-        <%= f.input :end_date, html5: true, input_html: {data: {calculation_target:"endDay", action: "change->calculation#calculate"} }  %>
-        <%= f.submit class:"btn btn-flat"%>
-      <% end %>
+      <div style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
+        <h3>Ready to book?</h3>
+        <%= simple_form_for [ @animal, @booking ] do |f| %>
+          <%= f.input :start_date, html5: true, input_html: {data: {calculation_target:"startDay", action: "change->calculation#calculate"} } %>
+          <%= f.input :end_date, html5: true, input_html: {data: {calculation_target:"endDay", action: "change->calculation#calculate"} }  %>
+          <%= f.button :submit, "Book", class: "btn btn-flat"%>
+        <% end %>
       </div>
       <div style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
         <div class="text-end">
@@ -71,19 +70,19 @@
       </div>
     <% end %>
   </div>
-
-  <div class="mt-5">
-
-    <h3>Leave a Review</h3>
-    <%= simple_form_for [ @animal, @review ] do |f| %>
-      <%= f.input :content, input_html: { minlength: 20 } %>
-      <div class="star-rating">
-        <% 5.times do |i| %>
-          <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
-        <% end %>
-      </div>
-      <%= f.button :submit, class:"btn btn-flat"%>
-    <% end %>
+  <div class="container">
+    <div class="mt-5">
+      <h3>Leave a Review</h3>
+      <%= simple_form_for [ @animal, @review ] do |f| %>
+        <%= f.input :content, input_html: { minlength: 20 } %>
+        <div class="star-rating">
+          <% 5.times do |i| %>
+            <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+          <% end %>
+        </div>
+        <%= f.button :submit, "Post", class: "btn btn-flat"%>
+      <% end %>
+    </div>
   </div>
   <h2 class="mt-5">Where <%= @animal.name %> is located</h2>
   <div class="cards mb-5" style="width: 100%; height: 600px;"
