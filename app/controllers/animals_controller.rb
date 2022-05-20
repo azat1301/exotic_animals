@@ -34,7 +34,7 @@ class AnimalsController < ApplicationController
     authorize @animal
 
     if @animal.save
-      redirect_to "animals/show", notice: 'Listing was successfully created.'
+      redirect_to animal_path(@animal), notice: 'Listing was successfully created.'
     else
       render :new
     end
