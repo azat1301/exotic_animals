@@ -16,4 +16,8 @@ class Animal < ApplicationRecord
   enum sex: { Unknown: 0, Male: 1, Female: 2 }
   enum rarity_level: { Threatened: 0, Endangered: 1, "Extinct in the Wild" => 2 }
   enum diet: { Herbivore: 0, Omnivore: 1, Carnivore: 2, Pescivore: 3, Insectivore: 4, Popcornivore: 5 }
+
+  def average_rating
+    reviews.blank? ? 0 : reviews.sum('rating') / reviews.count
+  end
 end
