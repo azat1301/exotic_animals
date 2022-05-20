@@ -6,3 +6,16 @@
 .button-custom {
 margin: 4px;
 }
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: #46876a;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: #31644e;
+  color: white;
+}
