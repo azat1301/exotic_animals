@@ -18,6 +18,14 @@
         <div class="card-trip-infos">
           <div>
             <h2><%= link_to animal.name, animal_path(animal), class:"text-decoration-none"%></h2>
+            <div class="d-flex">
+              <% animal.average_rating.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% (5 - animal.average_rating).times do %>
+                <i class="far fa-star"></i>
+              <% end %>
+            </div>
             <p><%= animal.species %></p>
             <p><%= animal.rarity_level %></p>
           </div>
