@@ -1,13 +1,14 @@
 .star-rating {
+  height: 50px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: start;
+  justify-content: start;
 
   input {
     visibility: hidden;
     margin-right: 1em;
     font-size: 28px;
-    text-shadow: 0.5px 0.5px 3px #E67E23;
+    text-shadow: 0.5px 0.5px 3px #2f5900;
   }
 
   input:before {
@@ -16,7 +17,7 @@
     font-family: 'Font Awesome 5 Free';
     content: '\f005';
     font-weight: 900;
-    color: #FD4;
+    color: rgb(37, 148, 61);
     transition: color 0.35s;
   }
 
