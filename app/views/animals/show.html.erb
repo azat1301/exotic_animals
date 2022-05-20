@@ -1,7 +1,7 @@
 <div data-controller="calculation" class="container-md mt-5">
   <div class="row">
     <div class="col-12 col-md-8">
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center mt-4">
         <div class="card-trip" id="card-show">
           <img id="img-show" src='<%= @animal.photo.attached? ? cl_image_path(@animal.photo.key) : "https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg" %>' />
           <div class="card-trip-infos">
@@ -34,6 +34,7 @@
               <% (5 - @animal.average_rating).times do %>
                 <i class="far fa-star"></i>
               <% end %>
+              <h2 class="card-trip-pricing">$<%= @animal.price %>/day</h2>
             </div>
             <h2 class="card-trip-pricing">$<%= @animal.price %>/day</h2>
           </div>
@@ -97,6 +98,7 @@
 </div>
 <h2 class="mt-5">Where <%= @animal.name %> is located</h2>
 <div class="cards mb-5" style="width: 100%; height: 600px;"
+
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
