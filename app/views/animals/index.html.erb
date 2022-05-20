@@ -28,11 +28,11 @@
             </h2>
             <p><strong><%= animal.species %></strong></p>
             <% if animal.rarity_level == "Threatened" %>
-              <p><i class="fas fa-times-circle" style="color: green;"></i> Threatened</p>
+              <p>Threatened <i class="fas fa-times-circle" style="color: green;"></i></p>
             <% elsif animal.rarity_level == "Endangered" %>
-              <p><i class="fas fa-exclamation-triangle" style="color: gold;"></i> Endangered</p>
+              <p>Endangered <i class="fas fa-exclamation-triangle" style="color: gold;"></i></p>
             <% else %>
-              <p><i class="fas fa-skull-crossbones" style="color: black;"></i> Extinct in the Wild</p>
+              <p>Extinct in the Wild <i class="fas fa-skull-crossbones" style="color: black;"></i></p>
             <% end %>
           </div>
           <div class="text-end">
