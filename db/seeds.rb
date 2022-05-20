@@ -29,22 +29,22 @@ puts "seeding the animals"
 user = User.all
 
 images = { 'Anaconda' => (1..3).to_a, 'Elephant' => (1..3).to_a, 'Komodo' => (1..3).to_a, 'Snow_Leopard' => (1..3).to_a, 'Trex' => (1..3).to_a }
-locations = %w(Miami Tokyo Osaka Kyoto Paris Sapporo London Naha Kumamoto Shinjuku Meguro Kasukabe Omiya Ikeburo Arakawa Toshima Yokohama Chiba Saitama)
+locations = %w(Tokyo Osaka Kyoto Sapporo Naha Kumamoto Shinjuku Meguro Kasukabe Omiya Ikeburo Arakawa Toshima Yokohama Chiba Saitama Fukuoka Kobe Sendai Nagoya)
 images.each do |animal, file_names|
   file_names.each do |file_name|
-   new_animal = Animal.create!(
-     user: user.sample,
-     species: animal,
-     name: Faker::Creature::Dog.name,
-     age: rand(0..100),
-     sex: rand(0..2),
-     location: locations.sample,
-     price: rand(10..1000),
-     rarity_level: rand(0..2),
-     diet: rand(0..5)
-    )
-    file = File.open("app/assets/images/#{animal}/#{file_name}.jpeg")
-    new_animal.photo.attach(io: file, filename: 'animal.jpg', content_type: 'image/jpg')
+    new_animal = Animal.create!(
+      user: user.sample,
+      species: animal,
+      name: Faker::Creature::Dog.name,
+      age: rand(0..100),
+      sex: rand(0..2),
+      location: locations.sample,
+      price: rand(10..1000),
+      rarity_level: rand(0..2),
+      diet: rand(0..5)
+      )
+      file = File.open("app/assets/images/#{animal}/#{file_name}.jpeg")
+      new_animal.photo.attach(io: file, filename: 'animal.jpg', content_type: 'image/jpg')
   end
 end
 
