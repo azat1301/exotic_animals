@@ -7,6 +7,11 @@
           <div class="card-trip-infos">
             <div>
               <h1><strong><%= @animal.name %></strong></h1>
+              <h2><%= @animal.species %></h2>
+              <p>Sex: <%= @animal.sex %></p>
+              <p>Age: <%= @animal.age %> years</p>
+              <p><%= @animal.rarity_level %> Species</p>
+              <p><%= @animal.species.pluralize %> are <strong><%= @animal.diet %>s</strong></p>
               <div class="d-flex">
                 <% @animal.average_rating.times do %>
                   <i class="fas fa-star"></i>
@@ -15,27 +20,30 @@
                   <i class="far fa-star"></i>
                 <% end %>
               </div>
-              <h2>Species: <%= @animal.species %></h2>
-              <p>Location: <strong><%= @animal.location %></strong></p>
             </div>
             <h1 class="card-trip-pricing">$<%= @animal.price %></h1>
             <%# <img src="https://kitt.lewagon.com/placeholder/users/yannklein" class="card-trip-user avatar-bordered" /> %>
-            <img src='<%= @animal.user.photo.attached? ? cl_image_path(@animal.user.photo.key) : "https://kitt.lewagon.com/placeholder/users/yannklein" %>' class="card-trip-user avatar-bordered" />
+            <img src='<%= @animal.user.photo.attached? ? cl_image_path(@animal.user.photo.key) : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" %>' class="card-trip-user avatar-bordered" />
           </div>
         </div>
       </div>
     </div>
     <div class="col-12 col-md-4 mt-4 mb-4">
-      <h3>Ready to <strong>book?</strong></h3>
+    <div style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
+      <h3>Ready to book?</h3>
       <%= simple_form_for [ @animal, @booking ] do |f| %>
         <%= f.input :start_date, html5: true, input_html: {data: {calculation_target:"startDay", action: "change->calculation#calculate"} } %>
         <%= f.input :end_date, html5: true, input_html: {data: {calculation_target:"endDay", action: "change->calculation#calculate"} }  %>
         <%= f.submit class:"btn btn-flat"%>
       <% end %>
-      <div class="text-end">
-        <p class="mt-3"><strong><%= @animal.name %></strong> (<%= @animal.species %>)</p>
-        <p >$ <span data-calculation-target="price"> <%= @animal.price %> </span> x <span data-calculation-target="days">1</span> </p>
-        <h3 >Total <strong>$ <span data-calculation-target="total"> <%= @animal.price %></strong></span></h3>
+      </div>
+      <div style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
+        <div class="text-end">
+          <h3 class="text-start">Your Cart</h3>
+          <h5 class="mt-3"><%= @animal.name %> (<%= @animal.species %>)</h5>
+          <p>$ <span data-calculation-target="price"> <%= @animal.price %> </span> x <span data-calculation-target="days">1</span> </p>
+          <h3 >Total <strong>$ <span data-calculation-target="total"> <%= @animal.price %></strong></span></h3>
+        </div>
       </div>
     </div>
   </div>
@@ -60,7 +68,7 @@
       </div>
     <% end %>
   </div>
-  <div>
+  <div class="mt-5">
     <h3>Leave a Review</h3>
     <%= simple_form_for [ @animal, @review ] do |f| %>
       <%= f.input :content, input_html: { minlength: 20 } %>
@@ -79,7 +87,3 @@
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
-<p>Sex: <%= @animal.sex %></p>
-<p>Age: <%= @animal.age %> years</p>
-<p><%= @animal.rarity_level %> Species</p>
-<p><%= @animal.species.pluralize %> are <strong><%= @animal.diet %>s</strong></p>
