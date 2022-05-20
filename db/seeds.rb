@@ -28,8 +28,9 @@ puts "there are now #{User.count} users (including Azat, Devin, and Kyle) with D
 puts "seeding the animals"
 user = User.all
 
-images = { 'Anaconda' => (1..3).to_a, 'Elephant' => (1..3).to_a, 'Komodo' => (1..3).to_a, 'Snow_Leopard' => (1..3).to_a, 'Trex' => (1..3).to_a }
+images = { 'Anaconda' => (1..3).to_a, 'Elephant' => (1..3).to_a, 'Komodo Dragon' => (1..3).to_a, 'Snow Leopard' => (1..3).to_a, 'Tyrannosaurus' => (1..3).to_a }
 locations = %w(Tokyo Osaka Kyoto Sapporo Naha Kumamoto Shinjuku Meguro Kasukabe Omiya Ikeburo Arakawa Toshima Yokohama Chiba Saitama Fukuoka Kobe Sendai Nagoya)
+
 images.each do |animal, file_names|
   file_names.each do |file_name|
     new_animal = Animal.create!(
