@@ -17,8 +17,26 @@
         <%# <img src="https://mycountrysidevet.com/wp-content/uploads/2018/08/shutterstock_1043006710.jpg" /> %>
         <div class="card-trip-infos">
           <div>
-            <h2><%= link_to animal.name, animal_path(animal), class:"text-decoration-none"%></h2>
-            <div class="d-flex">
+            <h2><strong><%= link_to animal.name, animal_path(animal), class:"text-decoration-none", style:"color: green;"%></strong>
+              <% if animal.sex == "Unknown" %>
+                <i class="fas fa-genderless" style="color: gold;"></i>
+              <% elsif animal.sex == "Male" %>
+                <i class="fas fa-mars" style="color: blue;"></i>
+              <% else %>
+                <i class="fas fa-venus" style="color: hotpink;"></i>
+              <% end %>
+            </h2>
+            <p><strong><%= animal.species %></strong></p>
+            <% if animal.rarity_level == "Threatened" %>
+              <p><i class="fas fa-times-circle" style="color: green;"></i> Threatened</p>
+            <% elsif animal.rarity_level == "Endangered" %>
+              <p><i class="fas fa-exclamation-triangle" style="color: gold;"></i> Endangered</p>
+            <% else %>
+              <p><i class="fas fa-skull-crossbones" style="color: black;"></i> Extinct in the Wild</p>
+            <% end %>
+          </div>
+          <div class="text-end">
+            <div class="d-flex mb-3">
               <% animal.average_rating.times do %>
                 <i class="fas fa-star"></i>
               <% end %>
@@ -26,10 +44,8 @@
                 <i class="far fa-star"></i>
               <% end %>
             </div>
-            <p><%= animal.species %></p>
-            <p><%= animal.rarity_level %></p>
+            <h2 class="card-trip-pricing">$<%= animal.price %>/day</h2>
           </div>
-          <h2 class="card-trip-pricing">$<%= animal.price %></h2>
         </div>
       </div>
     <% end %>
