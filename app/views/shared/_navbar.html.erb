@@ -12,17 +12,17 @@
           <strong><%= link_to "Animals", animals_path, class: "nav-link" %></strong>
         </li>
         <li class="nav-item active">
-          <%= link_to "New Listing", new_animal_path, class: "nav-link" %>
+          <strong><%= link_to "New Listing", new_animal_path, class: "nav-link" %></strong>
         </li>
         <li class="nav-item">
-          <%= link_to "Bookings", bookings_path, class: "nav-link" %>
+          <strong><%= link_to "Bookings", bookings_path, class: "nav-link" %></strong>
         </li>
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "Roars", "https://gamingsection.net/wp-content/uploads/2022/03/Is-Lions-Roar-good-for-Keqing.jpg", class: "nav-link" %>
+            <strong><%= link_to "Roars", "https://gamingsection.net/wp-content/uploads/2022/03/Is-Lions-Roar-good-for-Keqing.jpg", class: "nav-link" %></strong>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag (current_user.photo.attached? ? cl_image_path(current_user.photo.key) : "https://kitt.lewagon.com/placeholder/users/dmbf29"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag (current_user.photo.attached? ? cl_image_path(current_user.photo.key) : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "My Listings", owner_animals_path, class: "dropdown-item" %>
@@ -32,7 +32,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <strong><%= link_to "Login", new_user_session_path, class: "nav-link" %></strong>
           </li>
         <% end %>
       </ul>
