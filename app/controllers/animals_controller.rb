@@ -11,8 +11,9 @@ class AnimalsController < ApplicationController
 
   def show
     @animal = Animal.find(params[:id])
-    authorize @animal
     @booking = Booking.new
+    @review = Review.new
+    authorize @animal
     @markers = [
       {
         lat: @animal.latitude,
@@ -33,7 +34,7 @@ class AnimalsController < ApplicationController
     authorize @animal
 
     if @animal.save
-      redirect_to animal_path(@animal), notice: 'Listing was successfully created.'
+      redirect_to "animals/show", notice: 'Listing was successfully created.'
     else
       render :new
     end
